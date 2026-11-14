@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" fill="none">
+  <rect width="960" height="640" fill="#15171b"/>
+  <g stroke="#23262c" stroke-width="1">
+    <path d="M0 0H960M0 40H960M0 80H960M0 120H960M0 160H960M0 200H960M0 240H960M0 280H960M0 320H960M0 360H960M0 400H960M0 440H960M0 480H960M0 520H960M0 560H960M0 600H960"/>
+    <path d="M0 0V640M40 0V640M80 0V640M120 0V640M160 0V640M200 0V640M240 0V640M280 0V640M320 0V640M360 0V640M400 0V640M440 0V640M480 0V640M520 0V640M560 0V640M600 0V640M640 0V640M680 0V640M720 0V640M760 0V640M800 0V640M840 0V640M880 0V640M920 0V640M960 0V640"/>
+  </g>
+  <line x1="0" y1="520" x2="960" y2="520" stroke="#3a3f47" stroke-width="2"/>
+
+  <g stroke="#5b6470" stroke-width="2.5" stroke-linejoin="round" fill="none" opacity="0.55">
+    <path d="M180 520 L180 360 L300 270 L420 360 L420 520"/>
+    <path d="M180 360 L420 360"/>
+    <path d="M620 520 L620 320 L760 220 L900 320 L900 520"/>
+    <path d="M620 320 L900 320"/>
+  </g>
+
+  <g stroke="#fc4c04" stroke-width="3.5" stroke-linejoin="round" fill="none">
+    <path d="M260 520 L260 320 L460 190 L660 320 L660 520"/>
+    <path d="M260 320 L660 320"/>
+    <path d="M260 320 L460 190 L660 320" />
+    <path d="M310 320 L310 230 M410 320 L410 200 M510 320 L510 200 M610 320 L610 230" stroke-width="1.5" opacity="0.6"/>
+    <path d="M260 520 L260 460 M660 520 L660 460" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <g stroke="#fc4c04" stroke-width="1" opacity="0.8">
+    <line x1="260" y1="566" x2="660" y2="566"/>
+    <line x1="260" y1="558" x2="260" y2="574"/>
+    <line x1="660" y1="558" x2="660" y2="574"/>
+  </g>
+
+  <path d="M0 0 L48 0 L0 48 Z" fill="#fc4c04"/>
+
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" fill="#cfd3d8">
+    <text x="32" y="600" font-size="20" letter-spacing="2" fill="#f5f4f1">GALPÃO INDUSTRIAL</text>
+    <text x="32" y="624" font-size="13" letter-spacing="2" fill="#fc4c04">MOD-A &#183; VÃO 24,00 m &#183; PÓRTICOS METÁLICOS</text>
+  </g>
+</svg>

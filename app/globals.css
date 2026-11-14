@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
+/* ========================================================================
+   TOKENS DE TEMA — SHAMMAH / Site 1 (Impacto)
+   ------------------------------------------------------------------------
+   Três variações: escuro (padrão), claro e cinza. Trocadas via atributo
+   `data-theme` na tag <html> pelo componente `ThemeSwitcher`
+   (components/ui/ThemeSwitcher.tsx — temporário, ver instruções no README
+   para remoção).
+   ======================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0d0e10;
+  --bg-elevated: #17191c;
+  --fg: #f5f4f1;
+  --fg-muted: #9aa0a6;
+  --fg-faint: #5b6068;
+  --border: #2a2d33;
+  --grid-line: rgba(245, 244, 241, 0.07);
+  --surface: rgba(255, 255, 255, 0.035);
+  --accent: #fc4c04;
+  --accent-strong: #ff6a2b;
+  --accent-fg: #0d0e10;
+}
+
+[data-theme="light"] {
+  --bg: #f5f4f1;
+  --bg-elevated: #ffffff;
+  --fg: #15171a;
+  --fg-muted: #5b6068;
+  --fg-faint: #9aa0a6;
+  --border: #e2dfd9;
+  --grid-line: rgba(21, 23, 26, 0.06);
+  --surface: rgba(13, 14, 16, 0.03);
+  --accent: #fc4c04;
+  --accent-strong: #e44400;
+  --accent-fg: #ffffff;
+}
+
+[data-theme="gray"] {
+  --bg: #a9a8a5;
+  --bg-elevated: #b9b8b5;
+  --fg: #16181a;
+  --fg-muted: #43464a;
+  --fg-faint: #6e7074;
+  --border: #94928f;
+  --grid-line: rgba(21, 23, 26, 0.09);
+  --surface: rgba(255, 255, 255, 0.10);
+  --accent: #fc4c04;
+  --accent-strong: #e44400;
+  --accent-fg: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-faint: var(--fg-faint);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+
+  --font-display: var(--font-big-shoulders);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensa o header fixo ao navegar pelas âncoras do menu */
+section[id],
+footer[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Malha técnica reutilizável (blueprint grid) */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Ruído sutil para profundidade na primeira dobra */
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* Numerais tabulares para alinhar métricas/specs */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Faixa de clientes — rolagem contínua, pausa no hover */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+.group:hover .animate-marquee,
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
