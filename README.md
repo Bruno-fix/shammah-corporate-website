@@ -1,5 +1,7 @@
 # Shammah — Site 1 · Impacto
 
+Status do Desenvolvimento: Em andamento
+
 Landing page MVP da **SHAMMAH Estruturas Metálicas**, direção visual **bold / moderna /
 cinematográfica**: tema escuro como padrão, tipografia condensada de alto contraste,
 grid técnico de fundo, ilustrações estilo "prancha de engenharia" e composição
